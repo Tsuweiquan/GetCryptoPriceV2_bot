@@ -30,7 +30,9 @@ def get_prices(coinCode):
             "coin": i,
             "price": crypto_data[i]["USD"]["PRICE"],
             "change_day": crypto_data[i]["USD"]["CHANGEPCT24HOUR"],
-            "change_hour": crypto_data[i]["USD"]["CHANGEPCTHOUR"]
+            "change_hour": crypto_data[i]["USD"]["CHANGEPCTHOUR"],
+            "highest_24hr": crypto_data[i]["USD"]["HIGH24HOUR"],
+            "lowest_24hr": crypto_data[i]["USD"]["LOW24HOUR"]
          }
     return data
 
@@ -41,7 +43,9 @@ def format_OutputData(crypto_data):
         price = crypto_data[i]["price"]
         change_day = crypto_data[i]["change_day"]
         change_hour = crypto_data[i]["change_hour"]
-        message += f"Coin: {coin}\nPrice: ${price:,.8f}\nHour Change: {change_hour:.3f}%\nDay Change: {change_day:.3f}%\n\n"
+        highest_24hr = crypto_data[i]["highest_24hr"]
+        lowest_24hr = crypto_data[i]["lowest_24hr"]
+        message += f"Coin: {coin}\nPrice: ${price:,.8f}\nHour Change: {change_hour:.3f}%\nDay Change: {change_day:.3f}%\nHighest in 24HR: ${highest_24hr:.8f}\nLowest in 24HR: ${lowest_24hr:.8f}\n"
     return message
 
 # sample output
