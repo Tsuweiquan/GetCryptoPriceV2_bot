@@ -9,3 +9,7 @@ Mini project to obtain crypto prices from telegram via a bot. This uses AWS serv
 4) Lambda function will run the code to obtain the crypto price
 5) Lambda function will do a post request to telegram chat id that triggered the message
 6) User will receive the Crypto price.
+
+HOW TO RUN?
+*Runs in Python 3.8
+*import requests // This has to setup lambda Layers or build requests library into the lambda function
